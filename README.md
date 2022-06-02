@@ -60,6 +60,12 @@ Toplam yapılan iterasyon sayısını görüntüleyecektir.
 
 Enter tuşu ile programdan çıkabilirsiniz.
 
+
+
+https://user-images.githubusercontent.com/105719360/171736613-f979408b-2b46-4079-9372-d757ced8b470.mp4
+
+
+
 ## Deney ve Sonuçları
 
 Bu çalışmada 2 farklı çeşit teknik ile deney yapılmıştır. Bunlar **Single Point Crossover** (Tek Nokta Çaprazlaması) ve **Two Point Crossover** (Çift Nokta Çaprazlaması) yöntemleridir. Bu iki teknikten hangisinin 8 Vezir problemini genetik algoritmalar ile çözme konusunda daha efektif olduğu saptanmaya çalışılmıştır.
