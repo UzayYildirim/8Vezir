@@ -1,6 +1,6 @@
 # 8 Vezir Problemi
 
-8 satranç veziri, iki vezirin birbirini tehdit etmemesi için bir satranç tahtasına nasıl yerleştirilir?
+8 satranç veziri, iki vezirin birbirini tehdit etmemesi şartıyla bir satranç tahtasına nasıl yerleştirilir?
 
 (2 vezir aynı sütun, satır veya köşegen üzerinde olmamalıdır)
 
