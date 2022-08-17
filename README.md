@@ -1,8 +1,8 @@
-# 8 Vezir Problemi
+# 8 Queens Problem
 
-8 satranç veziri, iki vezirin birbirini tehdit etmemesi şartıyla bir satranç tahtasına nasıl yerleştirilir?
+How to place 8 chess queens on a chessboard provided that the two queens do not threaten each other?
 
-(2 vezir aynı sütun, satır veya köşegen üzerinde olmamalıdır)
+(2 queens must not be on the same row, column or diagonal)
 
 The 8 queens problem was first proposed by the chess player **Max Bezzel** in 1848. It was also studied by many mathematicians such as Gauss and Georg Cantor. The first solution was proposed by Franz Nauck in 1850 and also raised the "8 Queens Problem".
 
