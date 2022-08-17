@@ -1,114 +1,108 @@
-# 8 Queens Problem
+# 8 Vezir Problemi
 
-How to place 8 chess queens on a chessboard provided that the two queens do not threaten each other?
+8 satranç veziri, iki vezirin birbirini tehdit etmemesi şartıyla bir satranç tahtasına nasıl yerleştirilir?
 
-(2 queens must not be on the same row, column or diagonal)
+(2 vezir aynı sütun, satır veya köşegen üzerinde olmamalıdır)
 
-The 8 queens problem was first proposed by the chess player **Max Bezzel** in 1848. It was also studied by many mathematicians such as Gauss and Georg Cantor. The first solution was proposed by Franz Nauck in 1850 and also raised the "8 Queens Problem".
+8 Vezir problemi ilk olarak 1848'de satranç oyuncusu **Max Bezzel** tarafından ileri sürüldü. Gauss ve Georg Cantor gibi birçok matematikçi tarafından da incelendi. İlk çözüm, 1850'de Franz Nauck tarafından önerildi ve aynı zamanda “8 Vezir Problemini” gündeme getirdi.
 
-We know how much the maximum number of queens can be placed for each n x n chessboards. Neither attack the other, it is equal to n. One of the classic combinatorial problems is the eight queens problem, which is a method of placing eight queens on an 8 x 8 board, such as a chessboard, each of which **_do not conflict_** with another queen (**_they cannot attackç_**) The 8 Queens Problem has been generalized by placing _n_ queens so that the queens do not attack each other. The latest solution was found for the n = 26 value. The solution for n = 27 has not been found yet, since very high computational power is required.
+Her n x n satranç tahtası için maksimum vezir sayısının ne kadar yerleştirilebileceği bilgisine sahibiz. Hiçbiri diğerine saldırmaz, n'ye eşittir. Klasik kombinatoryal problemlerden biri, bir satranç tahtası gibi 8 x 8'lik bir tahtaya sekiz vezir yerleştirme yöntemi olan ve her biri başka bir vezir ile **_çakışmayan_** (**_saldıramayan_**) sekiz vezir problemidir. 8 vezir problemi, vezirler birbirlerine saldırmamaları için _n_ sayıda vezir yerleştirilerek genelleştirildi. En son n = 26 değeri için çözüm bulundu. Çok yüksek hesaplama gücüne gereksinim duyulduğundan n = 27 için çözüm henüz bulunamamıştır.
 
-**Multiple** methods can be shown to solve the 8 Queens Problem. Some of these are Brute Force, Genetic Algorithm, Hill Climbing, Random Walk and GBF/A methods. There will be 96 different solutions in an 8x8 table.
+8 Vezir problemini çözmek için **birden fazla** yöntem gösterilebilir. Bunlardan bazıları Brute Force, Genetik Algoritma, Yokuş Tırmanma, Rastgele Yürüme ve GBF/A yöntemleridir. 8x8’lik bir tabloda 96 farklı çözüm çıkacaktır.
 
 ![enter image description here](https://i.ibb.co/MVxk9PM/tahta.png)
 
-In the genetic algorithm method, a recursive method will be used, which will start from the first column at the top left, then place a queen in the second column and move it until it finds a place in the first column where the queen cannot attack.
+Genetik algoritma yönteminde sol üstteki ilk sütundan başlayıp, ardından ikinci sütuna bir vezir yerleştirecek ve ilk sütunda vezirin saldıramayacağı bir yer bulana kadar onu hareket ettirecek recursive (özyinelemeli) bir metod kullanılacaktır.
 ![enter image description here](https://i.ibb.co/tmV44w3/gorsellestirme.png)
 
 # Single Point Crossover
 
-A waypoint is selected in the parent array. All data beyond this point in the organism array is exchanged between the two parents. Crossover points are selected with taking _Positional Bias_ into consideration.<br>
+Ebeveyn dizisinde bir geçiş noktası seçilir. Organizma dizisindeki bu noktanın ötesindeki tüm veriler, iki ebeveyn arasında değiştirilir. Çaprazlama noktaları, _Konumsal Önyargı (Positional Bias)_ ile seçilir. <br>
 
 ![enter image description here](https://i.ibb.co/brWzh2M/tekNokta.jpg)
 ![enter image description here](https://i.ibb.co/6P12bMv/tek-Nokta-2.jpg)
 # Two Point Crossover
 
-This is a special case of the N-point Crossover technique. Two points are randomly selected on the chromosomes (strandeds) and genetic material is changed at these points.
+Bu, N-noktası Çaprazlama tekniğinin özel bir durumudur. Kromozomlar (şeritler) üzerinde rastgele iki nokta seçilir ve bu noktalarda genetik materyal değiştirilir.
 <br>
 ![enter image description here](https://i.ibb.co/hsDxMF9/2Nokta.jpg)
 ![enter image description here](https://i.ibb.co/XW0c6gg/2Nokta-2.jpg)
-## Solution of 8 Queens Problem with Genetic Algorithm
+## 8 Vezir probleminin Genetik Algoritma ile çözümü
 
-First of all, the population size is found according to the board size. The initial population is randomly generated. The resulting chromosome candidates are then evaluated. After the evaluation, we move on to the next generation. The aim here is to select the ones that are considered to be the best among the chromosomes from the pool. A predetermined single point or double point cross is applied according to the user input. **Mutation** is applied to new offsprings that appear in the meantime. It is repeated until the best generation is found (i.e. the generation with queens that are not in a position to attack each other on the chessboard is detected) or until the maximum number of iterations is completed.
+Öncelikle tahta boyutuna göre popülasyon boyutu bulunur. İlk popülasyon rastgele bir şekilde oluşturulur. Ardından, ortaya çıkan kromozom adayları değerlendirilir. Değerlendirme sonrasında bir sonraki jenerasyon için çalışmaya başlanır. Buradaki amaç, mevcut kromozomların arasından en iyi olduğu düşünülenlerin seçilmesidir. Seçim yapıldıktan sonra program başlangıcında kullanıcı girdisine göre önceden belirlenmiş olan tek nokta veya çift nokta çaprazlaması uygulanır. Bu sırada ortaya çıkan yeni çıktılara (çocuk, offspring) **mutasyon** uygulanır. En iyi jenerasyon bulunana (yani satranç tahtasında birbirine saldırabilir konumda olmayan vezirlerin bulunduğu jenerasyon tespit edilene kadar) veya maksimum iterasyon sayısı tamamlanana kadar tekrarlanır.
 
-## How to use 8 Queens?
+## Nasıl Kullanılır?
 
-**NumPy library is required for the program to run. It can be installed using the command ** **“pip install numpy”** ** in the terminal.** [**Detailed information can be obtained from NumPy's site.**](https://numpy.org/install/)
+**Programın çalışabilmesi için NumPy kütüphanesi gereklidir. Terminalde** **“pip install numpy”** **komutu kullanarak kurulabilir.** [**Detaylı bilgi NumPy’ın sitesinden alınabilir.**](https://numpy.org/install/)
 
-When the script is launched, you will be asked for the board size, crossover type (single point/double point), whether to use mutations and the maximum number of iterations that can be made.
+Program (Script) başlatıldığında tahta boyutu, çaprazlama türü (tek nokta/çift nokta,) mutasyon kullanımı yapılıp yapılmayacağı ve maksimum yapılabilecek iterasyon sayısı sorulacaktır.
 
-Recommended values:
+Bunlar için **önerilen değerler aşağıdaki gibidir:**
 
-Board Size: **8**  
-Type of crossover: **1**  
-Mutation usage: **yes**  
-Maximum iterations: **2000**
+Tahta boyutu: **8**  
+Çaprazlama türü: **1**  
+Mutasyon kullanımı: **e**  
+Maksimum iterasyon: **2000**
 
-Parameters should be given taking into account the system specifications, otherwise the process may take too long. For example, given the board size of 32 and the number of iterations high, it would not be feasible for the computer to complete the operation (with the current code) in terms of time complexity.
+Parametreler sistem özelliklerini göz önünde bulundurarak verilmelidir, aksi takdirde işlem çok uzun sürebilir. Örnek olarak tahta boyutu 32 olarak verildiğinde ve iterasyon sayısı yüksek tutulduğunda bilgisayarın işlemi tamamlaması (mevcut kod ile) time complexity bakımından uygulanabilir olamayacaktır.
 
-Then the program will start trying to solve the 8 Queens problem by creating the first population by following the given parameters.
+Ardından program verilmiş olan parametrelere uyarak ilk popülasyonu oluşturarak 8 Vezir problemini çözmeye çalışmaya başlayacaktır.
 ![enter image description here](https://i.ibb.co/NnrDMcb/8-Vezir-Initial.jpg)
-It will print the overall Fitness value of the generations on the screen every generation and when the process is complete:
+Jenerasyonların Fitness (uygunluk) durumunu her jenerasyonda ekrana basacak ve işlem tamamlandığında:
 
-**If the problem has been solved without reaching the maximum number of iterations:**
+**Eğer problem maksimum iterasyon sayısına ulaşılmadan çözülebilmişse:**
 
-It will display the generation of queens that do not attack each other (ie, do not overlap) and the total number of iterations.
+Birbirine saldırmayan (yani çakışmayan) vezirlerin bulunduğu jenerasyonu ve toplam iterasyon sayısını görüntüleyecektir.
 
-**If the script couldn't solve the problem without reaching the maximum number of iterations:**
+**Eğer problem maksimum iterasyon sayısına ulaşılmadan çözülememişse:**
 
-It will display the total number of iterations.
+Toplam yapılan iterasyon sayısını görüntüleyecektir.
 
-You can exit the program using Enter key.
-
-
+Enter tuşu ile programdan çıkabilirsiniz.
 
 https://user-images.githubusercontent.com/105719360/171736613-f979408b-2b46-4079-9372-d757ced8b470.mp4
 
+## Deney ve Sonuçları
 
+Bu çalışmada 2 farklı çeşit teknik ile deney yapılmıştır. Bunlar **Single Point Crossover** (Tek Nokta Çaprazlaması) ve **Two Point Crossover** (Çift Nokta Çaprazlaması) yöntemleridir. Bu iki teknikten hangisinin 8 Vezir problemini genetik algoritmalar ile çözme konusunda daha efektif olduğu saptanmaya çalışılmıştır.
 
-## Experiment and Results
+**Deneyin yapıldığı şartlar:**
 
-In this study, two different techniques were experimented with. These are the **Single Point Crossover** and **Two Point Crossover** methods. It has been tried to determine which of these two techniques is more effective in solving the 8 Queens Problem using genetic algorithms.
-
-**Conditions for the experiment:**
-
-**For a choice of *8* board size:**
+***8* Tahta Boyutu seçeneği için:**
 
 **CPU**: Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz
 
-**OS**: Windows 10 Pro 21H2 (Build Numarası 19044.1706)
+**İşletim Sistemi**: Windows 10 Pro 21H2 (Build Numarası 19044.1706)
 
-**CPU Architecture**: 64-Bit (x86-64)
+**İşlemci Mimarisi**: 64-Bit (x86-64)
 
-**Python Version**: Python 3.10
+**Kullanılan Python Sürümü**: Python 3.10
 
-**Amount of RAM allocated for Python**: 12GB
+**Python için Ayrılan RAM Miktarı**: 12GB
 
-**NumPy Library Version**: numpy-1.22.4-cp310-cp310-win_amd64.whl
+**NumPy kütüphane sürümü:** numpy-1.22.4-cp310-cp310-win_amd64.whl
 
 <br>
 
-**For a choice of *16* board size:**
+***16* Tahta Boyutu seçeneği için:**
 
-**CPU**: AMD Ryzen 9 5950X 16-Core CPU @ 3.40GHz
+**CPU**: AMD Ryzen 9 5950X 16-Çekirdek CPU @ 3.40GHz
 
-**OS**: Windows Server 2019
+**İşletim Sistemi**: Windows Server 2019
 
-**CPU Architecture**: 64-Bit (x86-64)
+**İşlemci Mimarisi**: 64-Bit (x86-64)
 
-**Python Version**: Python 3.10
+**Kullanılan Python Sürümü**: Python 3.10
 
-**Amount of RAM allocated for Python**: 3GB
+**Python için Ayrılan RAM Miktarı**: 3GB
 
-**NumPy Library Version**: numpy-1.22.4-cp310-cp310-win_amd64.whl
+**NumPy kütüphane sürümü:** numpy-1.22.4-cp310-cp310-win_amd64.whl
 
-The maximum iteration value for all tests is 2000.
+Tüm testler için maksimum iterasyon değeri 2000 verilmiştir.
 
-Mutation feature was used in all tests.
+Tüm testlerde mutasyon özelliği kullanılmıştır.
 
 ![enter image description here](https://i.ibb.co/gyv29KX/8-Vezir-Sonuclar.jpg)
 
 
-**As a result, it has been determined that the Single Point Crossover technique gives better results for the 8 Queens problem. To reach this result, the test was repeated at least 5 times for each type of crossover.**
-
-Thanks for checking out 8 Queens!
+**Sonuç olarak, Tek Nokta Çaprazlama tekniğinin 8 Vezir problemi özelinde daha iyi sonuç verdiği saptanmıştır. Bu sonuca ulaşmak için her bir çaprazlama türünde test en az 5 kere tekrarlanmıştır.**
